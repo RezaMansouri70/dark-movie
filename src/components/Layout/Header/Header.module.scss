@@ -1,14 +1,30 @@
 .nav {
-  padding: 5px 20px 0;
+  padding: 0 20px;
   margin: 0;
 }
 .navLogo {
   margin: 0;
-  padding: 0 10px 0 0;
+  padding: 10px 10px 0 0 !important;
 }
 .navLogo::after {
   content: url(logo1.png);
+
+  // transition: opacity 1s ease;
+  // -webkit-transition: opacity 1s ease;
+}
+.navLogo::before {
+  content: url(logo2.png);
+  // transition: opacity 0.1s ease;
+  // -webkit-transition: opacity 0.1s ease;
+  opacity: 0;
+  position: absolute;
+  left: 10;
+  top: 0;
+  opacity: 0;
 }
 .navLogo:hover::after {
-  content: url(logo2.png);
+  opacity: 0;
+}
+.navLogo:hover::before {
+  opacity: 1;
 }
