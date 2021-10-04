@@ -1,0 +1,10 @@
+$theme-colors: (
+  "gold": rgb(238, 255, 0),
+  "sia": rgb(0, 0, 0),
+);
+.btn-zard {
+  background-color: rgb(255, 230, 0) !important;
+  color: rgb(0, 0, 0) !important;
+}
+
+@import "~bootstrap/scss/bootstrap";

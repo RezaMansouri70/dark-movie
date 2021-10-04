@@ -1,0 +1,14 @@
+.nav {
+  padding: 5px 20px 0;
+  margin: 0;
+}
+.navLogo {
+  margin: 0;
+  padding: 0 10px 0 0;
+}
+.navLogo::after {
+  content: url(logo1.png);
+}
+.navLogo:hover::after {
+  content: url(logo2.png);
+}

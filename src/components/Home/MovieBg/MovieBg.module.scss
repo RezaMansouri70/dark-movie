@@ -1,0 +1,14 @@
+.bg {
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+  padding: 50px 50px;
+  filter: grayscale(1);
+  color: #fff;
+  p {
+    margin: 0 10px;
+  }
+  span {
+    background-color: rgba(0, 0, 0, 0.452);
+  }
+}
