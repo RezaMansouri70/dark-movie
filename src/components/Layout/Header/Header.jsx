@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Nav,
   Navbar,
@@ -6,9 +6,8 @@ import {
   Button,
   Form,
   NavDropdown,
-  DropdownButton,
 } from "react-bootstrap";
-import { Link } from "react-router-dom";
+
 import classes from "./Header.module.scss";
 
 export default function Header() {

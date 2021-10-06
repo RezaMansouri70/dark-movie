@@ -1,5 +1,5 @@
 import React from "react";
-import { Card, Container, Row, Spinner, Col } from "react-bootstrap";
+import { Card, Row, Spinner, Col } from "react-bootstrap";
 import useMovieDB from "../../hooks/useMovieDB";
 import { useParams } from "react-router";
 import classes from "./Movie.module.scss";

@@ -1,5 +1,4 @@
 import React from "react";
-import { Container, Tab, Row, Col, Nav } from "react-bootstrap";
 import BestMovies from "../BestMovies/BestMovies";
 import BestTVShows from "../BestTVShows/BestTVShows";
 
