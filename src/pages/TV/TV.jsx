@@ -3,6 +3,7 @@ import { Card, Container, Row, Spinner, Col } from "react-bootstrap";
 import useMovieDB from "../../hooks/useMovieDB";
 import { useParams } from "react-router";
 import classes from "./TV.module.scss";
+import { Helmet } from "react-helmet";
 
 export default function TV() {
   const { id } = useParams();
@@ -10,6 +11,9 @@ export default function TV() {
 
   return (
     <div>
+      <Helmet>
+        <title>(DMDB)</title>
+      </Helmet>
       {loading ? (
         <div className={classes.spinner}>
           <Spinner animation="grow" variant="success" />

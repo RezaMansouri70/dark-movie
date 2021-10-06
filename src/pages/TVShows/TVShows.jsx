@@ -3,12 +3,16 @@ import { Col, Row, Card, Spinner, CardDeck } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useMovieDB from "../../hooks/useMovieDB";
 import classes from "./TVShows.module.scss";
+import { Helmet } from "react-helmet";
 
 export default function TVShows() {
   const { data, loading } = useMovieDB("tv/popular");
 
   return (
     <div className={classes.row}>
+      <Helmet>
+        <title>TV Shows (DMDB)</title>
+      </Helmet>
       <h1>TV Shows</h1>
       {loading ? (
         <div>

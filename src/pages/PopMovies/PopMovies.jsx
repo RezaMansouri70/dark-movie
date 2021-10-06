@@ -3,12 +3,16 @@ import { Col, Row, Card, Spinner, CardDeck } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import useMovieDB from "../../hooks/useMovieDB";
 import classes from "./PopMovies.module.scss";
+import { Helmet } from "react-helmet";
 
 export default function PopMovies() {
   const { data, loading } = useMovieDB("movie/popular");
 
   return (
     <div className={classes.row}>
+      <Helmet>
+        <title>Popular Movies (DMDB)</title>
+      </Helmet>
       <h1>Popular Movies</h1>
       {loading ? (
         <div>

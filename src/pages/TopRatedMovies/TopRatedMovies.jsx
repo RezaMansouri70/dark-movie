@@ -3,10 +3,15 @@ import { Col, Row, Card, Spinner, CardDeck } from "react-bootstrap";
 import useMovieDB from "../../hooks/useMovieDB";
 import classes from "./TopRatedMovies.module.scss";
 import { Link } from "react-router-dom";
+import { Helmet } from "react-helmet";
+
 export default function TopRatedMovies() {
   const { data, loading } = useMovieDB("movie/top_rated");
   return (
     <div className={classes.row}>
+      <Helmet>
+        <title>Top Rated Movies (DMDB)</title>
+      </Helmet>
       <h1>Top Rated Movies</h1>
       {loading ? (
         <div>
