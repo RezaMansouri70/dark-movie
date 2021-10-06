@@ -4,6 +4,7 @@ import { BrowserRouter } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import Layout from "./components/Layout/Layout";
 import "./index.scss";
+import "swiper/swiper-bundle.css";
 import Routes from "./Routes";
 
 ReactDOM.render(

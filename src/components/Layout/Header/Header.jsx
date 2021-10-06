@@ -1,5 +1,14 @@
-import React from "react";
-import { Nav, Navbar, FormControl, Button, Form } from "react-bootstrap";
+import React, { useState } from "react";
+import {
+  Nav,
+  Navbar,
+  FormControl,
+  Button,
+  Form,
+  NavDropdown,
+  DropdownButton,
+} from "react-bootstrap";
+import { Link } from "react-router-dom";
 import classes from "./Header.module.scss";
 
 export default function Header() {
@@ -8,13 +17,17 @@ export default function Header() {
       <Navbar fixed="top" bg="sia" variant="dark" className={classes.nav}>
         <Navbar.Brand
           variant="dark"
-          href="#home"
+          href="/"
           className={classes.navLogo}
         ></Navbar.Brand>
+
         <Nav className="mr-auto">
-          <Nav.Link href="#home">Home</Nav.Link>
-          <Nav.Link href="#features">Features</Nav.Link>
-          <Nav.Link href="#pricing">Pricing</Nav.Link>
+          <NavDropdown title="Movies" id="basic-nav-dropdown">
+            <NavDropdown.Item href="/pop">Popular</NavDropdown.Item>
+            <NavDropdown.Item href="/top">Top Rated</NavDropdown.Item>
+          </NavDropdown>
+          <Nav.Link href="/tv">TV Shows</Nav.Link>
+          <Nav.Link>Actors</Nav.Link>
         </Nav>
         <Form inline>
           <FormControl type="text" placeholder="Search" className="mr-sm-2" />

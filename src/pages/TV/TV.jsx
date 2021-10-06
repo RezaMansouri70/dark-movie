@@ -2,11 +2,11 @@ import React from "react";
 import { Card, Container, Row, Spinner, Col } from "react-bootstrap";
 import useMovieDB from "../../hooks/useMovieDB";
 import { useParams } from "react-router";
-import classes from "./Movie.module.scss";
+import classes from "./TV.module.scss";
 
-export default function Movie() {
+export default function TV() {
   const { id } = useParams();
-  const { data, loading } = useMovieDB(`movie/${id}`);
+  const { data, loading } = useMovieDB(`tv/${id}`);
 
   return (
     <div>
@@ -34,11 +34,12 @@ export default function Movie() {
                 </Card>
               </Col>
               <Col xs={12} md={9} className={classes.title}>
-                <h1>{data.original_title}</h1>
-                <p>
-                  <span> {data.genres[0].name} </span>,
-                  <span> {data.genres[1]?.name} </span>
-                </p>
+                <h1>{data.name}</h1>
+                <img
+                  style={{ backgroundColor: "#ffffffe3", padding: 5 }}
+                  width="70"
+                  src={`https://image.tmdb.org/t/p/w92${data.networks[0]?.logo_path}`}
+                />
                 <p>{data.release_date}</p>
                 <div className={classes.vote}>
                   {data.vote_average * 10}
@@ -47,6 +48,8 @@ export default function Movie() {
                 <p>{data.tagline}</p>
                 <h4>overview :</h4>
                 <p>{data.overview}</p>
+                <p style={{ margin: 0 }}>Creator : </p>
+                <h4>{data.created_by[0]?.name}</h4>
               </Col>
             </Row>
           </div>

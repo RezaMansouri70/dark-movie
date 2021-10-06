@@ -1,6 +1,14 @@
 .nav {
   padding: 0 20px;
-  margin: 0;
+}
+.DropdownButton {
+  // padding: 0px 10px;
+  color: rgb(206, 206, 206) !important;
+  cursor: pointer;
+}
+.DropdownButton:hover {
+  // padding: 0px 10px;
+  color: rgb(131, 131, 131) !important;
 }
 .navLogo {
   margin: 0;

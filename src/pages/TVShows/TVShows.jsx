@@ -1,13 +1,15 @@
 import React from "react";
 import { Col, Row, Card, Spinner, CardDeck } from "react-bootstrap";
-import useMovieDB from "../../../hooks/useMovieDB";
-import classes from "./TopRatedMovies.module.scss";
 import { Link } from "react-router-dom";
-export default function TopRatedMovies() {
-  const { data, loading } = useMovieDB("movie/top_rated");
+import useMovieDB from "../../hooks/useMovieDB";
+import classes from "./TVShows.module.scss";
+
+export default function TVShows() {
+  const { data, loading } = useMovieDB("tv/popular");
+
   return (
     <div className={classes.row}>
-      <h1>Top Rated Movies</h1>
+      <h1>TV Shows</h1>
       {loading ? (
         <div>
           <Spinner animation="grow" variant="success" />
@@ -18,26 +20,27 @@ export default function TopRatedMovies() {
       ) : (
         <Row>
           <CardDeck>
-            {" "}
-            {data?.results.map((movie) => {
+            {data?.results.map((tv) => {
               return (
                 <Col xs={12} md={4} lg={3}>
-                  <Link to={`/${movie.id}`}>
-                    <Card className={classes.card}>
+                  <Card className={classes.card}>
+                    <Link to={`/tv/${tv.id}`}>
                       <Card.Img
-                        src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
+                        src={`https://image.tmdb.org/t/p/w200${tv.poster_path}`}
                       />
                       <Card.Body className={classes.cardBody}>
                         <Card.Text className={classes.vote}>
-                          {movie.vote_average * 10}
+                          {tv.vote_average * 10}
+                          <sup style={{ fontSize: 10 }}>%</sup>
                         </Card.Text>
+
                         <Card.Title className={classes.title}>
-                          {movie.original_title}
+                          {tv.name}
                         </Card.Title>
-                        <Card.Text>{movie.release_date}</Card.Text>
+                        <Card.Text>{tv.first_air_date}</Card.Text>
                       </Card.Body>
-                    </Card>
-                  </Link>
+                    </Link>
+                  </Card>
                 </Col>
               );
             })}

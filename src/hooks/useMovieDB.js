@@ -14,6 +14,6 @@ export default function useMovieDB(endpoint, option) {
       .finally(() => {
         setLoading(false);
       });
-  }, [endpoint, option]);
+  }, []);
   return { data, loading };
 }

@@ -1,7 +1,8 @@
 import React from "react";
 import uswMovieDB from "../../../hooks/useMovieDB";
-import classes from "./MovieSlider.module.scss";
+import classes from "./BestTVShows.module.scss";
 import { Link } from "react-router-dom";
+
 import "swiper/swiper-bundle.css";
 import { Card, Spinner } from "react-bootstrap";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -22,11 +23,8 @@ SwiperCore.use([
   EffectCoverflow,
 ]);
 
-export default function MovieSlider() {
-  const { data, loading } = uswMovieDB(
-    "movie/popular",
-    `page=${Math.floor(Math.random() * 100)}`
-  );
+export default function BestTVShows() {
+  const { data, loading } = uswMovieDB("tv/popular");
   return (
     <div className={classes.slider}>
       {loading ? (
@@ -38,31 +36,31 @@ export default function MovieSlider() {
         </div>
       ) : (
         <Swiper
-          effect={"coverflow"}
-          grabCursor={true}
-          centeredSlides={true}
-          slidesPerView={"auto"}
-          coverflowEffect={{
-            rotate: 0,
-            stretch: 0,
-            depth: 10,
-            modifier: 50,
-            slideShadows: true,
-          }}
+          slidesPerView={6}
+          navigation={{ clickable: true }}
+          pagination={{ clickable: true }}
+          navigation={false}
+          pagination={false}
           autoplay={{
-            delay: 1500,
+            delay: 2000,
             disableOnInteraction: false,
           }}
-          className={classes.swiper}
+          className="mySwiper2"
         >
           {data?.results.map((movie) => {
             return (
-              <SwiperSlide key={movie.id} className={classes.swiperSlide}>
-                <Link to={`/movie/${movie.id}`}>
-                  <Card>
+              <SwiperSlide key={movie.id} style={{ padding: 20 }}>
+                <Link to={`/tv/${movie.id}`}>
+                  <Card className={classes.card}>
                     <Card.Img
                       src={`https://image.tmdb.org/t/p/w200${movie.poster_path}`}
                     />
+                    <Card.Body className={classes.cardBody}>
+                      <Card.Title className={classes.title}>
+                        {movie.original_name}
+                      </Card.Title>
+                      <Card.Text>{movie.first_air_date}</Card.Text>
+                    </Card.Body>
                   </Card>
                 </Link>
               </SwiperSlide>
