@@ -1,13 +1,16 @@
 import React from "react";
-import Footer from "./Footer/Footer";
-import Header from "./Header/Header";
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import Footer from "./Footer";
+import Header from "./Header";
+import Main from "./Main";
 
 export default function Layout({ children }) {
   return (
-    <>
+    <div>
       <Header />
-      <div>{children}</div>
+      <Main>{children}</Main>
       <Footer />
-    </>
+    </div>
   );
 }

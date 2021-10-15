@@ -4,6 +4,8 @@ import useMovieDB from "../../hooks/useMovieDB";
 import { useParams } from "react-router";
 import classes from "./TV.module.scss";
 import { Helmet } from "react-helmet";
+import Header from "../../components/Layout/Header";
+import Footer from "../../components/Layout/Footer";
 
 export default function TV() {
   const { id } = useParams();
@@ -11,15 +13,17 @@ export default function TV() {
 
   return (
     <div>
+      <Header />
       <Helmet>
-        <title>(DMDB)</title>
+        <title>{data?.name}</title>
       </Helmet>
       {loading ? (
         <div className={classes.spinner}>
-          <Spinner animation="grow" variant="success" />
-          <Spinner animation="grow" variant="danger" />
           <Spinner animation="grow" variant="warning" />
-          <Spinner animation="grow" variant="info" />
+          <Spinner animation="grow" variant="dark" />
+          <Spinner animation="grow" variant="warning" />
+          <Spinner animation="grow" variant="dark" />
+          <Spinner animation="grow" variant="warning" />
         </div>
       ) : (
         <div
@@ -59,6 +63,7 @@ export default function TV() {
           </div>
         </div>
       )}
+      <Footer />
     </div>
   );
 }

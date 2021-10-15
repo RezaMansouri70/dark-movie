@@ -1,17 +1,17 @@
 import React from "react";
 import ReactDOM from "react-dom";
 import { BrowserRouter } from "react-router-dom";
-import "bootstrap/dist/css/bootstrap.min.css";
-import Layout from "./components/Layout/Layout";
+
 import "./index.scss";
 import "swiper/swiper-bundle.css";
-import Routes from "./Routes";
+import Pages from "./pages/Pages";
+import UserProvider from "./context/UserContext";
 
 ReactDOM.render(
-  <BrowserRouter>
-    <Layout>
-      <Routes />
-    </Layout>
-  </BrowserRouter>,
+  <UserProvider>
+    <BrowserRouter>
+      <Pages />
+    </BrowserRouter>
+  </UserProvider>,
   document.getElementById("root")
 );

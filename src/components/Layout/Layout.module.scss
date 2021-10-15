@@ -1,0 +1,122 @@
+//----------------------------header------------------------------
+
+.nav {
+  padding: 20px 20px 0;
+  background-color: #000;
+}
+.nav1 {
+  background-color: aqua !important;
+}
+.DropdownButton {
+  // padding: 0px 10px;
+  color: rgb(206, 206, 206) !important;
+  cursor: pointer;
+}
+.DropdownButton:hover {
+  // padding: 0px 10px;
+  color: rgb(131, 131, 131) !important;
+}
+.navLogo {
+  margin: 0;
+  padding: 10px 10px 0 0 !important;
+}
+.navLogo::after {
+  content: url(../../images/logo1.png);
+}
+.navLogo::before {
+  content: url(../../images/logo2.png);
+  opacity: 0;
+  position: absolute;
+  left: 10;
+  top: 0;
+  opacity: 0;
+}
+.navLogo:hover::after {
+  opacity: 0;
+}
+.navLogo:hover::before {
+  opacity: 1;
+}
+.user {
+  color: var(--text);
+  font-size: 2em;
+  cursor: pointer;
+  // margin-right: 30px;
+}
+.form {
+  padding: 0;
+  margin-left: 20px;
+  background-color: #a7a7a73d;
+  border-radius: 5px;
+  padding: 3px;
+
+  input {
+    font-size: 1.2em;
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    outline: none;
+    color: var(--text);
+  }
+  button {
+    background-color: rgba(0, 0, 0, 0);
+    border: none;
+    cursor: pointer;
+  }
+  .search {
+    color: var(--text);
+    transform: rotateY(180deg);
+    font-size: 1.5em;
+  }
+}
+@media screen and (max-width: 730px) {
+  .form {
+    display: none;
+  }
+}
+
+//---------------------------main------------------------------
+
+.sider {
+  background-color: rgb(68, 68, 68);
+  padding: 0;
+  filter: grayscale(1) brightness(0.3) blur(2px);
+  img {
+    padding: 0;
+    margin: 0;
+  }
+}
+@media screen and (max-width: 850px) {
+  .sider {
+    display: none;
+  }
+}
+//---------------------------footer----------------------------
+.footer {
+  background-color: black;
+  padding: 20px;
+  .username {
+    display: flex;
+    align-items: center;
+    height: 100%;
+    h4 {
+      background-color: rgb(29, 29, 29);
+      border-radius: 5px;
+      padding: 10px;
+      color: var(--text);
+    }
+  }
+  .logo {
+    padding: 30px 30px;
+  }
+  .li {
+    color: rgb(255, 255, 255);
+    padding: 20px 10px;
+    ul {
+      padding: 5px;
+    }
+    li {
+      color: var(--text);
+      list-style: none;
+    }
+  }
+}
